@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Secret World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            background: #1b1235;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 15px;
+        }
+
+        h1 { color: #ffb6e6; }
+
+        .room {
+            max-width: 350px;
+            margin: auto;
+            padding: 25px;
+            border: 1px solid #a879d9;
+            border-radius: 20px;
+            background: #291b49;
+        }
+
+        button, input {
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        button {
+            background: #ffb6e6;
+            cursor: pointer;
+        }
+
+        .power {
+            display: block;
+            width: 100%;
+        }
+
+        #result { color: #ffcfef; }
+    </style>
+</head>
+
+<body>
+    <div class="room">
+        <h1>🌙 The Secret World</h1>
+        <p>Discover the power hidden inside you.</p>
+
+        <input id="name" placeholder="Enter your name">
+
+        <p>Choose your secret power:</p>
+
+        <button class="power" onclick="reveal(1)">
+            🔮 Read minds
+        </button>
+
+        <button class="power" onclick="reveal(2)">
+            ⏳ Control time
+        </button>
+
+        <button class="power" onclick="reveal(3)">
+            🌌 See the future
+        </button>
+
+        <h3 id="result"></h3>
+
+        <button onclick="resetGame()">Play Again ↻</button>
+    </div>
+
+    <script>
+        function reveal(choice) {
+            let name = document.getElementById("name").value.trim();
+            let result = document.getElementById("result");
+
+            if (name === "") {
+                result.textContent = "Enter your name first! ✨";
+                return;
+            }
+
+            let message;
+
+            switch (choice) {
+                case 1:
+                    message = "You understand secrets others miss!";
+                    break;
+                case 2:
+                    message = "You wish every moment could last longer!";
+                    break;
+                case 3:
+                    message = "Your imagination sees endless possibilities!";
+                    break;
+            }
+
+            result.textContent = name + ", " + message;
+        }
+
+        function resetGame() {
+            document.getElementById("name").value = "";
+            document.getElementById("result").textContent = "";
+        }
+    </script>
+</body>
+</html>
